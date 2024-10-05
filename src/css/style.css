@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Reset global */
 * {
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -7,78 +8,161 @@
     box-sizing: border-box;
 }
 
+/* Header */
 header {
-    background-color: rgb(140, 113, 190);
+    background-color: rgb(40, 44, 52);
     width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    h1{
-        font-weight: 200;
-    }
+    padding: 20px 0; /* Padding para o header */
 }
 
+header h1 {
+    font-weight: 600;
+    color: white;
+}
+
+/* Navigation */
 nav {
     width: 100%;
-    background-color: rgb(197, 162, 119);
+    background-color: rgb(67, 77, 88);
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    button {
-        background-color: aqua;
-    }
-    button:hover {
-        background-color:blue;
-        color: azure;
-    }
 }
 
+nav button {
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: #1C86EE;
+}
+
+/* Main Section */
 section {
-    padding: 10px 10px;
+    padding: 10px;
     width: 100%;
-    height: 100vh;
-    background-color: rgb(90, 151, 131);
+    height: 100vh; /* Altura total da tela */
+    background-color: rgb(240, 240, 240);
     display: flex;
+    justify-content: center;
     flex-direction: row;
-    gap: 10px;
-    .todo {
-        border-radius: 10px;
-        background-color:beige;
-        width: 33%;
-        height: 200px;
-        p {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-    }
-    .doing {
-        border-radius: 10px;
-        background-color:beige;
-        width: 33%;
-        height: 200px;
-        p {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-    }
-    .done {
-        border-radius: 10px;
-        background-color:beige;
-        width: 33%;
-        height: 200px;
-        p {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-    }
 }
 
+/* To-do, Doing, Done sections */
+section .todo,
+section .doing,
+section .done {
+    border-radius: 10px;
+    background-color: white;
+    width: 30%; /* Largura proporcional */
+    height: 100%; /* Altura total */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 5px; /* Espaçamento entre as colunas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título das seções */
+section .todo p,
+section .doing p,
+section .done p {
+    font-weight: bold;
+    color: rgb(40, 44, 52);
+    margin-bottom: 10px;
+}
+
+/* Tasks */
+section .task {
+    border: 1px solid #ccc; /* Borda fina cinza */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 100%; /* Largura da caixa de tarefas */
+    display: flex;
+    flex-direction: column;
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaçamento entre tarefas */
+    background-color: #f9f9f9; /* Fundo claro */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animação suave */
+}
+
+/* Efeito ao passar o mouse nas tarefas */
+section .task:hover {
+    transform: scale(1.02); /* Leve aumento */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+/* Top and Bottom buttons */
+.top,
+.bottom {
+    display: flex;
+    justify-content: center; /* Centraliza os botões na horizontal */
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+/* Ajustes adicionais no input */
+section .task input[type="text"] {
+    margin: 10px 0; /* Margem vertical para espaçar do restante */
+    width: 100%; /* Largura total do campo */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px; /* Altura do campo */
+    outline: none;
+    padding: 0 10px; /* Padding interno */
+    transition: border-color 0.3s; /* Transição suave para a borda */
+}
+
+section .task input[type="text"]:hover,
+section .task input[type="text"]:focus {
+    border-color: #1E90FF; /* Mudança de cor da borda ao focar */
+}
+
+section .task input[type="text"]:focus {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.337);
+}
+
+/* Botões nas tarefas */
+button {
+    background-color: #1E90FF; /* Cor do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 5px 10px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+button:hover {
+    background-color: #1C86EE; /* Cor ao passar o mouse */
+}
+
+/* Footer */
 footer {
     width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    margin-top: 20px; /* Espaçamento superior */
+    background-color: rgb(40, 44, 52);
+    padding: 10px 0; /* Padding para o footer */
+}
+
+footer p {
+    color: white; /* Cor do texto do footer */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    section .todo,
+    section .doing,
+    section .done {
+        width: 100%; /* Cada coluna ocupa 100% em telas menores */
+        margin-bottom: 10px; /* Ajusta o espaçamento entre colunas */
+    }
 }
