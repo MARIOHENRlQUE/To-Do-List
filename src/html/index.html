@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDoList</title>
     <link rel="stylesheet" href="../css/styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <div class="box toDo">
-        <h1 class="titulo">To Do</h1>
-        <div class="linha"></div>
-        <div class="tasksToDo"></div>
-        <button class="newTask">Nova Tarefa</button>
-      </div>
+        <div class="box toDo">
+            <h1 class="titulo">To Do</h1>
+            <div class="linha"></div>
+            <ul class="tasksToDo" role="list"></ul>
+            <button class="newTask">Nova Tarefa</button>
+        </div>
 
-      <div class="box done">
-        <h1 class="titulo">Done</h1>
-        <div class="linha"></div>
-        <div class="tasksDone"></div>
-        <button class="save">Salvar</button>
-      </div>
+        <div class="box done">
+            <h1 class="titulo">Done</h1>
+            <div class="linha"></div>
+            <ul class="tasksDone" role="list"></ul>
+            <button class="save">Salvar</button>
+        </div>
     </div>
     <script src="../libs/jquery-3.7.1.min.js"></script>
     <script src="../js/script.js"></script>
-  </body>
+</body>
 </html>

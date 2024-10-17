@@ -1,68 +1,81 @@
 $(document).ready(function () {
-  var tasks = [];
-  var taskTodo = "";
-  var taskDone = "";
-
-  //Adiciona uma tarefa
+  // Adiciona uma tarefa
   $(".newTask").on("click", function () {
-    var modelTask = `<div class="taskBox">
-                            <button class="priority higher">↑</button>
-                            <button class="priority lower"> ↓</button>
-                            <div class="taskName" ><input class="nameOf"placeholder="Adicionar nova tarefa..." type="text" /></div>
-                            <input class="checkBox" type="checkbox"></input>
-                            <button class="removeTask">x</button>
-                        </div>`;
-    if ($(".tasksToDo").children().length <= 10) {
-      $(".tasksToDo").append(modelTask);
-    } else {
-      alert("Limite de tarefas excedido!");
-    }
-  });
+      var taskInput = $('<input class="nameOf" placeholder="Adicionar nova tarefa..." type="text" />');
 
-  //Remove uma tarefa
-  $(document).on("click", ".removeTask", function () {
-    $(this).closest(".taskBox").remove();
-  });
-
-  //Faz a tarefa passar de uma coluna para a outra
-  $(document).on("change", ".checkBox", function () {
-    if ($(this).is(":checked")) {
-      var aux = $(this).closest(".taskBox").find(".nameOf").val();
-      var modelTask = `<div class="taskBox">
-                                <div class="taskName" ><input value="${aux}" class="nameOf"placeholder="Adicionar nova tarefa..." type="text" /></div>
-                                <input class="checkBox" type="checkbox" checked></input>
-                             </div>`;
-      if (aux) {
-        $(".tasksDone").append(modelTask);
-        $(this).closest(".taskBox").remove();
+      
+      var modelTask = `<li class="taskBox">
+                          <button class="priority higher">↑</button>
+                          <button class="priority lower"> ↓</button>
+                          <div class="taskName">${taskInput[0].outerHTML}</div>
+                          <input class="checkBox" type="checkbox"></input>
+                          <button class="removeTask">x</button>
+                      </li>`;
+      
+      if ($(".tasksToDo").children().length < 10) {
+          $(".tasksToDo").append(modelTask);
+          taskInput.val(''); // Limpa o input após adicionar
+      } else {
+          alert("Limite de tarefas excedido!");
       }
-    } else if (!$(this).is(":checked")) {
-      var aux = $(this).closest(".taskBox").find(".nameOf").val();
-      var modelTask = `<div class="taskBox">
-                                <button class="priority higher">↑</button>
-                                <button class="priority lower"> ↓</button>
-                                <div class="taskName" ><input value="${aux}" class="nameOf"placeholder="Adicionar nova tarefa..." type="text" /></div>
-                                <input class="checkBox" type="checkbox"></input>
-                                <button class="removeTask">x</button>
-                            </div>`;
-      $(".tasksToDo").append(modelTask);
+  });
+
+  // Remove uma tarefa
+  $(document).on("click", ".removeTask", function () {
       $(this).closest(".taskBox").remove();
-    }
   });
 
-  //Sobe a tarefa
+  // Faz a tarefa passar de uma coluna para a outra
+  $(document).on("change", ".checkBox", function () {
+      var aux = $(this).closest(".taskBox").find(".nameOf").val();
+      var modelTask;
+
+      if ($(this).is(":checked")) {
+          modelTask = `<li class="taskBox">
+                          <div class="taskName"><input value="${aux}" class="nameOf" type="text" /></div>
+                          <input class="checkBox" type="checkbox" checked></input>
+                       </li>`;
+          if (aux) {
+              $(".tasksDone").append(modelTask);
+              $(this).closest(".taskBox").remove();
+          }
+      } else {
+          modelTask = `<li class="taskBox">
+                          <button class="priority higher">↑</button>
+                          <button class="priority lower"> ↓</button>
+                          <div class="taskName"><input value="${aux}" class="nameOf" type="text" /></div>
+                          <input class="checkBox" type="checkbox"></input>
+                          <button class="removeTask">x</button>
+                       </li>`;
+          $(".tasksToDo").append(modelTask);
+          $(this).closest(".taskBox").remove();
+      }
+  });
+
+  // Sobe a tarefa
   $(document).on("click", ".higher", function () {
-    var lastBrother = $(this).closest(".taskBox").prev();
-    if (lastBrother.length) {
-      $(this).closest(".taskBox").insertBefore(lastBrother);
-    }
+      var $taskBox = $(this).closest(".taskBox");
+      var $lastBrother = $taskBox.prev();
+      if ($lastBrother.length) {
+          $taskBox.insertBefore($lastBrother);
+      }
   });
 
-  //Desce a tarefa
+  // Desce a tarefa
   $(document).on("click", ".lower", function () {
-    var nextBrother = $(this).closest(".taskBox").next();
-    if (nextBrother.length) {
-      $(this).closest(".taskBox").insertAfter(nextBrother);
-    }
+      var $taskBox = $(this).closest(".taskBox");
+      var $nextBrother = $taskBox.next();
+      if ($nextBrother.length) {
+          $taskBox.insertAfter($nextBrother);
+      }
+  });
+
+  // Salva as tarefas
+  $(document).on("click", ".save", function() {
+      $(".tasksToDo").children(".taskBox").each(function(index, element) {
+          var taskContent = $(element).find(".nameOf").val();
+          console.log('Índice:', index, 'Conteúdo:', taskContent);
+          alert('Índice: ' + index + ', Conteúdo: ' + taskContent);
+      });
   });
 });
