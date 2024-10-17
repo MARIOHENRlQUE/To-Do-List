@@ -1,38 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="todolist">
-    <meta name="author" content="Mario Henrique">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <title>To Do List</title>
-    <link rel="stylesheet" href="/To-Do-List/src/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>TO DO LIST</h1>
-    </header>
-    <nav>
-        <button id="addTaskButton">ADD TASK</button>
-    </nav>
-    <section>
-        <div class="todo">
-            <p>To Do</p>
-            <div class="tasks"></div>
-        </div>
-        <div class="doing">
-            <p>Doing</p>
-            <div class="tasks"></div>
-        </div>
-        <div class="done">
-            <p>Done</p>
-            <div class="tasks"></div>
-        </div>
-    </section>
-    <footer>
-        <p>© 2024 To-do List. Todos os direitos reservados.</p>
-    </footer>
-    <script src="/To-Do-List/src/js/script.js"></script>
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box toDo">
+        <h1 class="titulo">To Do</h1>
+        <div class="linha"></div>
+        <div class="tasksToDo"></div>
+        <button class="newTask">Nova Tarefa</button>
+      </div>
+
+      <div class="box done">
+        <h1 class="titulo">Done</h1>
+        <div class="linha"></div>
+        <div class="tasksDone"></div>
+        <button class="save">Salvar</button>
+      </div>
+    </div>
+    <script src="../libs/jquery-3.7.1.min.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
 </html>

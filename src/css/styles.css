@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-left: 0px;
+  display: flex;
+  width: 800px;
+  gap: 5px;
+  height: 800px;
+  justify-content: center;
+  border: solid;
+}
+
+.titulo {
+  margin-top: 5px;
+  font-size: 24px;
+}
+
+.linha {
+  width: 350px;
+  height: 2px;
+  background-color: black;
+}
+
+.box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.taskBox {
+  display: flex;
+  align-items: center;
+  background-color: #888f96;
+  margin-top: 10px;
+  height: 50px;
+  width: 350px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.taskName {
+  margin-left: auto;
+  margin-right: 10px;
+  width: 248px;
+  height: 35px;
+  background-color: rgb(245, 245, 245);
+}
+
+.removeTask {
+  border: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-left: 19px;
+  margin-bottom: 31px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nameOf {
+  width: 244px;
+  height: 33px;
+  border: none;
+}
+
+.priority {
+  height: 20px;
+  background-color: #5f5f5f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+}
+.higher {
+  color: #4caf50;
+}
+.lower {
+  color: #bb2121;
+}
+
+.priority {
+  display: flex;
+  width: 10px;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+#okButton {
+  width: 50px;
+  height: 35px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#backButton {
+  width: 50px;
+  height: 35px;
+  background-color: #e48c8c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toDo {
+  background-color: #e48c8c;
+  border-right: solid;
+}
+
+.done {
+  background-color: #b9f7a9;
+  border-left: solid;
+}
+
+.newTask {
+  display: flex;
+  margin-top: auto;
+  height: 50px;
+  width: 300px;
+  border: solid white;
+  justify-content: center;
+  align-items: center;
+  background-color: #888f96;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save {
+  display: flex;
+  margin-top: auto;
+  height: 50px;
+  width: 300px;
+  border: solid white;
+  justify-content: center;
+  align-items: center;
+  background-color: #888f96;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
